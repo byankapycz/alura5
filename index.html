@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentor de Carreiras com IA</title>
+
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Arial, sans-serif;
+}
+
+body {
+background: #10172a;
+color: white;
+}
+
+header {
+background: #192943;
+padding: 30px 15px;
+text-align: center;
+border-bottom: 3px solid #8b5cf6;
+}
+
+header h1 {
+color: #b69aff;
+margin-bottom: 10px;
+}
+
+.container {
+max-width: 850px;
+margin: auto;
+padding: 25px;
+}
+
+.card {
+background: #1c2c43;
+padding: 25px;
+border-radius: 14px;
+margin-bottom: 22px;
+box-shadow: 0 5px 15px #0004;
+}
+
+h2 {
+color: #b69aff;
+margin-bottom: 18px;
+}
+
+p {
+color: #d5deea;
+line-height: 1.7;
+margin-bottom: 12px;
+}
+
+label {
+display: block;
+margin-top: 15px;
+margin-bottom: 8px;
+font-weight: bold;
+}
+
+input, select, textarea {
+width: 100%;
+padding: 13px;
+border: none;
+border-radius: 7px;
+margin-bottom: 10px;
+font-size: 15px;
+}
+
+button {
+background: #8b5cf6;
+color: white;
+border: none;
+padding: 14px 20px;
+border-radius: 8px;
+font-weight: bold;
+cursor: pointer;
+margin-top: 12px;
+}
+
+button:hover {
+background: #a78bfa;
+}
+
+.resultado {
+background: #293b59;
+padding: 20px;
+border-radius: 10px;
+margin-top: 20px;
+line-height: 1.8;
+}
+
+.resultado h3 {
+color: #c4b5fd;
+margin-bottom: 10px;
+}
+
+.destaque {
+color: #b69aff;
+font-weight: bold;
+}
+
+ul {
+padding-left: 22px;
+line-height: 2;
+color: #d5deea;
+}
+
+footer {
+background: #192943;
+text-align: center;
+padding: 25px;
+color: #aab8ca;
+}
+
+@media(max-width: 600px) {
+.container {
+padding: 14px;
+}
+
+.card {
+padding: 18px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🚀 Mentor de Carreiras</h1>
+<p>Descubra possibilidades para seu futuro profissional!</p>
+</header>
+
+<main class="container">
+
+<section class="card">
+<h2>🤖 Conheça seu mentor</h2>
+
+<p>
+Este projeto apresenta um mentor virtual que ajuda
+estudantes a explorar profissões de acordo com seus
+interesses, habilidades e objetivos.
+</p>
+
+<p>
+Responda ao questionário e receba sugestões
+para começar a planejar sua carreira.
+</p>
+</section>
+
+<section class="card">
+
+<h2>📝 Sobre você</h2>
+
+<label for="nome">Qual é seu nome?</label>
+<input type="text" id="nome"
+placeholder="Digite seu nome">
+
+<label for="interesse">Qual área mais desperta seu interesse?</label>
+
+<select id="interesse">
+<option value="">Selecione uma área</option>
+<option value="tecnologia">Tecnologia</option>
+<option value="saude">Saúde</option>
+<option value="educacao">Educação</option>
+<option value="negocios">Negócios</option>
+<option value="criatividade">Arte e criatividade</option>
+<option value="natureza">Meio ambiente e natureza</option>
+</select>
+
+<label for="habilidade">Qual é sua principal habilidade?</label>
+
+<select id="habilidade">
+<option value="">Selecione uma habilidade</option>
+<option value="comunicacao">Comunicação</option>
+<option value="logica">Raciocínio lógico</option>
+<option value="criatividade">Criatividade</option>
+<option value="organizacao">Organização</option>
+<option value="ajuda">Ajudar pessoas</option>
+</select>
+
+<label for="objetivo">O que você busca em uma profissão?</label>
+
+<textarea id="objetivo" rows="3"
+placeholder="Conte um pouco sobre seus objetivos..."></textarea>
+
+<button onclick="gerarRecomendacao()">
+Descobrir minha carreira
+</button>
+
+<div class="resultado" id="resultado">
+Sua recomendação profissional aparecerá aqui.
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>💡 Dicas para o futuro profissional</h2>
+
+<ul>
+<li>Conheça suas habilidades e interesses.</li>
+<li>Pesquise sobre diferentes profissões.</li>
+<li>Invista em cursos e capacitações.</li>
+<li>Desenvolva habilidades de comunicação.</li>
+<li>Busque experiências e novos conhecimentos.</li>
+<li>Considere as oportunidades do mercado de trabalho.</li>
+</ul>
+
+</section>
+
+<section class="card">
+
+<h2>🔒 Segurança e privacidade</h2>
+
+<p>
+Um sistema de inteligência artificial deve respeitar
+a privacidade dos usuários e utilizar informações
+com responsabilidade.
+</p>
+
+<ul>
+<li>Não solicite senhas ou documentos pessoais.</li>
+<li>Proteja as informações dos usuários.</li>
+<li>Evite compartilhar dados confidenciais.</li>
+<li>Confira as informações antes de tomar decisões.</li>
+<li>Utilize a inteligência artificial como ferramenta de apoio.</li>
+</ul>
+
+</section>
+
+</main>
+
+<footer>
+<p>Projeto desenvolvido para fins educacionais.</p>
+<p>Start by Alura | Mentor de Carreiras</p>
+</footer>
+
+<script>
+
+function gerarRecomendacao() {
+
+const nome = document.getElementById("nome").value.trim();
+
+const interesse =
+document.getElementById("interesse").value;
+
+const habilidade =
+document.getElementById("habilidade").value;
+
+const objetivo =
+document.getElementById("objetivo").value.trim();
+
+if (!nome || !interesse || !habilidade) {
+alert("Preencha seu nome, interesse e habilidade!");
+return;
+}
+
+let profissao = "";
+let descricao = "";
+
+// Condicionais para recomendar profissões.
+
+if (interesse === "tecnologia") {
+
+profissao = "Desenvolvedor de Software";
+descricao = "Você pode explorar programação, criação de sistemas e desenvolvimento de aplicativos.";
+
+} else if (interesse === "saude") {
+
+profissao = "Profissionais da área da Saúde";
+descricao = "Você pode conhecer cursos como Medicina, Enfermagem, Fisioterapia e Nutrição.";
+
+} else if (interesse === "educacao") {
+
+profissao = "Professor ou Pedagogo";
+descricao = "A educação oferece oportunidades para ensinar, orientar e transformar vidas.";
+
+} else if (interesse === "negocios") {
+
+profissao = "Administrador ou Empreendedor";
+descricao = "Você pode explorar gestão, planejamento, marketing e empreendedorismo.";
+
+} else if (interesse === "criatividade") {
+
+profissao = "Designer ou Publicitário";
+descricao = "Você pode trabalhar com comunicação visual, criação de conteúdo e projetos criativos.";
+
+} else if (interesse === "natureza") {
+
+profissao = "Biólogo ou Engenheiro Ambiental";
+descricao = "Você pode atuar na preservação ambiental e no desenvolvimento sustentável.";
+
+}
+
+let habilidadeTexto = "";
+
+switch (habilidade) {
+
+case "comunicacao":
+habilidadeTexto = "Sua comunicação pode ser um diferencial em profissões que envolvem interação com pessoas.";
+break;
+
+case "logica":
+habilidadeTexto = "Seu raciocínio lógico pode ajudar na resolução de problemas e análise de informações.";
+break;
+
+case "criatividade":
+habilidadeTexto = "Sua criatividade pode contribuir para desenvolver ideias e soluções inovadoras.";
+break;
+
+case "organizacao":
+habilidadeTexto = "Sua organização pode ajudar no planejamento e gerenciamento de projetos.";
+break;
+
+case "ajuda":
+habilidadeTexto = "Sua disposição para ajudar pessoas pode ser valorizada em diversas profissões.";
+break;
+
+}
+
+document.getElementById("resultado").innerHTML = `
+<h3>Olá, ${nome}!</h3>
+
+<p>Com base nas suas respostas, aqui está uma sugestão:</p>
+
+<p class="destaque">Área profissional sugerida:</p>
+
+<p>${profissao}</p>
+
+<p>${descricao}</p>
+
+<p class="destaque">Sua habilidade:</p>
+
+<p>${habilidadeTexto}</p>
+
+<p class="destaque">Seu objetivo:</p>
+
+<p>${objetivo || "Continue explorando seus interesses profissionais."}</p>
+
+<p><strong>Próximo passo:</strong> pesquise sobre a formação,
+as atividades e as oportunidades dessa profissão.</p>
+
+<p><em>Esta é uma sugestão educativa, não uma avaliação
+definitiva de suas capacidades ou do seu futuro.</em></p>
+`;
+
+}
+
+</script>
+
+</body>
+</html>
